@@ -8,10 +8,10 @@
   "bugs": "https://github.com/phaserjs/phaser/issues",
   "license": "MIT",
   "licenseUrl": "https://www.opensource.org/licenses/mit-license.php",
-  "main": "./src/phaser.js",
+  "main": "./dist/phaser-custom.js",
   "types": "./types/phaser.d.ts",
-  "browser": "./dist/phaser.js",
-  "module": "./dist/phaser.esm.js",
+  "browser": "./dist/phaser-custom.js",
+  "module": "./dist/phaser-custom.js",
   "repository": {
     "type": "git",
     "url": "https://phaserjs@github.com/phaserjs/phaser.git"
@@ -19,6 +19,7 @@
   "scripts": {
     "beta": "npm publish --tag beta",
     "help": "node scripts/help.js",
+    "build2": "rollup --config config/rollup.config.mjs && cp ./dist/phaser-custom.js ../../definitely-not2/vendor/phaser.js",
     "build": "webpack --config config/webpack.config.js",
     "watch": "webpack --watch --config config/webpack.config.js",
     "watchns": "webpack --watch --config config/webpack-nospector.config.js",
@@ -95,6 +96,10 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
-    "eventemitter3": "^5.0.1"
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-replace": "^6.0.2",
+    "eventemitter3": "^5.0.1",
+    "rollup-plugin-visualizer": "^5.14.0"
   }
 }
